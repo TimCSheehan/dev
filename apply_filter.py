@@ -9,6 +9,10 @@ def apply_filter(input_sig, input_filter):
         filt_sig (float array): filtered signal 
 
     """
+    
+    import numpy as np
+
+
     # fft our signal
     fft_sig = np.fft.rfft(input_sig)
 
