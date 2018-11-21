@@ -13,7 +13,7 @@ def define_filt(fc, b, window, type_filt):
 
     Returns:
         n (int array): span of filter
-        sinc (float array): cinc filter in time domain
+        sinc (float array): sinc filter in time domain
 
     """
 
@@ -50,7 +50,7 @@ def define_filt(fc, b, window, type_filt):
     sinc_func = sinc_func * win
 
     # Normalize to have an area of 1 (unit area)
-    sinc_func = sinc_func / np.sum(sinc_func)
+    sinc_func /= np.sum(sinc_func)
 
     # check filter type...if lp then do nothing, else if hp invert, else return msg
     if type_filt == 'lp':
@@ -79,7 +79,6 @@ def apply_filt(input_sig, input_filter):
         filt_sig (float array): filtered signal 
 
     """
-
     # fft our signal
     fft_sig = np.fft.rfft(input_sig)
 
